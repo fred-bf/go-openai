@@ -43,6 +43,9 @@ func (c *Client) CreateChatCompletionStream(
 	request ChatCompletionRequest,
 ) (stream *ChatCompletionStream, err error) {
 	urlSuffix := chatCompletionsSuffix
+	if c.config.ChatCompletionsSuffix != "" {
+		urlSuffix = c.config.ChatCompletionsSuffix
+	}
 	if !checkEndpointSupportsModel(urlSuffix, request.Model) {
 		err = ErrChatCompletionInvalidModel
 		return
