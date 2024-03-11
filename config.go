@@ -27,12 +27,13 @@ const AzureAPIKeyHeader = "api-key"
 type ClientConfig struct {
 	authToken string
 
-	BaseURL              string
-	OrgID                string
-	APIType              APIType
-	APIVersion           string                    // required when APIType is APITypeAzure or APITypeAzureAD
-	AzureModelMapperFunc func(model string) string // replace model to azure deployment name func
-	HTTPClient           *http.Client
+	BaseURL               string
+	ChatCompletionsSuffix string
+	OrgID                 string
+	APIType               APIType
+	APIVersion            string                    // required when APIType is APITypeAzure or APITypeAzureAD
+	AzureModelMapperFunc  func(model string) string // replace model to azure deployment name func
+	HTTPClient            *http.Client
 
 	EmptyMessagesLimit uint
 }
